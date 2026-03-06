@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remote Careers | DataOps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', sans-serif;
+  background: #fff;
+  color: #080810;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+:root {
+  --ink:       #080810;
+  --ink-2:     #1a1a2e;
+  --muted:     #5a5a72;
+  --faint:     #9090a8;
+  --border:    #e8e8f0;
+  --surface:   #f7f7fb;
+  --white:     #ffffff;
+  --blue:      #2952ff;
+  --blue-2:    #4f6aff;
+  --indigo:    #5b2be8;
+  --grad:      linear-gradient(135deg, #2952ff 0%, #5b2be8 100%);
+  --grad-soft: linear-gradient(135deg, rgba(41,82,255,0.07) 0%, rgba(91,43,232,0.05) 100%);
+  --green:     #16a34a;
+  --green-bg:  #eefaf2;
+  --green-bdr: #b6e8c8;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 68px; background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(16px); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 5vw;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-size: 1.0625rem; font-weight: 800; color: var(--ink);
+  text-decoration: none; letter-spacing: -0.03em;
+  display: flex; align-items: center; gap: 9px;
+}
+.nav-mark {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: var(--grad); display: flex; align-items: center; justify-content: center;
+}
+.nav-mark svg { width: 16px; height: 16px; }
+.nav-right { display: flex; align-items: center; gap: 2rem; }
+.nav-link { font-size: 0.875rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s; }
+.nav-link:hover { color: var(--ink); }
+.nav-btn {
+  background: var(--ink); color: #fff; padding: 0.55rem 1.375rem;
+  border-radius: 100px; font-size: 0.875rem; font-weight: 600;
+  text-decoration: none; transition: opacity .2s; white-space: nowrap;
+}
+.nav-btn:hover { opacity: .82; }
+
+/* ── HERO ── */
+.hero {
+  padding-top: 68px; min-height: 88vh;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden; background: #fff;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, #d0d0e8 1px, transparent 1px);
+  background-size: 32px 32px; opacity: .42;
+}
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); pointer-events: none;
+}
+.orb-1 { width: 560px; height: 560px; background: radial-gradient(circle, rgba(41,82,255,.12) 0%, transparent 70%); top: -80px; right: -60px; }
+.orb-2 { width: 340px; height: 340px; background: radial-gradient(circle, rgba(91,43,232,.09) 0%, transparent 70%); bottom: 0; left: 8%; }
+.hero-inner {
+  position: relative; z-index: 2;
+  max-width: 1240px; margin: 0 auto; padding: 6rem 5vw;
+  display: grid; grid-template-columns: 1fr 420px; gap: 5rem; align-items: center;
+}
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--border); background: var(--white);
+  padding: 5px 14px 5px 8px; border-radius: 100px; margin-bottom: 1.75rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,.05);
+}
+.hero-pill-mark {
+  width: 20px; height: 20px; border-radius: 50%; background: var(--grad);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.hero-pill span { font-size: 0.75rem; font-weight: 600; color: var(--muted); }
+.hero h1 {
+  font-size: clamp(2.6rem, 5.2vw, 4.25rem); font-weight: 800;
+  line-height: 1.04; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 1.25rem;
+}
+.hero h1 em {
+  font-style: normal; background: var(--grad);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-sub { font-size: 1.125rem; font-weight: 600; color: var(--ink-2); margin-bottom: .75rem; }
+.hero-body {
+  font-size: 1.0625rem; color: var(--muted); line-height: 1.75;
+  max-width: 500px; margin-bottom: 2.25rem; font-weight: 400;
+}
+.hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.btn-grad {
+  background: var(--grad); color: #fff;
+  padding: .8125rem 2rem; border-radius: 100px;
+  font-size: .9375rem; font-weight: 700; text-decoration: none;
+  display: inline-block; transition: opacity .2s, box-shadow .2s;
+  box-shadow: 0 4px 20px rgba(41,82,255,.3);
+  border: none; cursor: pointer; font-family: 'Manrope', sans-serif;
+}
+.btn-grad:hover { opacity: .9; box-shadow: 0 6px 28px rgba(41,82,255,.4); }
+.btn-outline {
+  background: transparent; color: var(--ink);
+  padding: .8125rem 1.75rem; border-radius: 100px;
+  font-size: .9375rem; font-weight: 600; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1.5px solid var(--border); transition: border-color .2s, color .2s;
+}
+.btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+.btn-outline svg { transition: transform .2s; }
+.btn-outline:hover svg { transform: translateX(3px); }
+
+/* Hero stats panel */
+.hero-panel {
+  background: var(--white); border: 1px solid var(--border); border-radius: 20px;
+  padding: 2rem; box-shadow: 0 20px 60px rgba(10,10,30,.1), 0 2px 8px rgba(10,10,30,.04);
+}
+.hp-top {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);
+}
+.hp-label { font-size: .875rem; font-weight: 700; color: var(--ink); }
+.hp-sub { font-size: .75rem; color: var(--faint); margin-top: 2px; }
+.hp-open {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--green-bg); border: 1px solid var(--green-bdr);
+  padding: 4px 10px; border-radius: 100px;
+}
+.hp-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+.hp-open span { font-size: .7rem; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: .04em; }
+.hp-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.25rem; }
+.hp-stat { background: var(--surface); border-radius: 12px; padding: 1rem; border: 1px solid var(--border); }
+.hp-stat-v { font-size: 1.5rem; font-weight: 800; color: var(--ink); letter-spacing: -0.03em; }
+.hp-stat-l { font-size: .7rem; color: var(--faint); font-weight: 500; margin-top: 2px; }
+.hp-roles { display: flex; flex-direction: column; gap: 8px; }
+.hp-role-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .625rem .875rem; border-radius: 10px; background: var(--surface);
+  border: 1px solid var(--border);
+}
+.hp-role-name { font-size: .8rem; font-weight: 600; color: var(--ink); }
+.hp-role-pay { font-size: .75rem; font-weight: 700; color: var(--blue); }
+
+/* ── SECTIONS ── */
+section { padding: 6rem 5vw; }
+.container { max-width: 1240px; margin: 0 auto; }
+.sec-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--blue); margin-bottom: 1rem;
+}
+.sec-eyebrow::before {
+  content: ''; width: 20px; height: 2px;
+  background: var(--grad); border-radius: 2px; display: block;
+}
+.sec-title {
+  font-size: clamp(1.875rem, 3.2vw, 2.75rem); font-weight: 800;
+  line-height: 1.1; letter-spacing: -0.035em; color: var(--ink);
+}
+.sec-body { font-size: 1.0625rem; color: var(--muted); line-height: 1.75; font-weight: 400; }
+
+/* ── POSITIONS SECTION ── */
+.positions { background: var(--surface); }
+.pos-head { max-width: 640px; margin-bottom: 3rem; }
+.pos-head .sec-title { margin-bottom: .875rem; }
+.pos-count {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .8125rem; font-weight: 600; color: var(--blue);
+  background: var(--grad-soft); border: 1px solid rgba(41,82,255,.15);
+  padding: 4px 12px; border-radius: 100px; margin-bottom: 1rem;
+}
+
+/* Role cards grid */
+.roles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.role-card {
+  background: var(--white); border: 1.5px solid var(--border); border-radius: 18px;
+  overflow: hidden; transition: border-color .25s, box-shadow .25s;
+  cursor: pointer;
+}
+.role-card:hover { border-color: rgba(41,82,255,.3); box-shadow: 0 8px 32px rgba(41,82,255,.08); }
+.role-card.active { border-color: var(--blue); box-shadow: 0 8px 32px rgba(41,82,255,.12); }
+
+/* Card header — always visible */
+.rc-header {
+  padding: 1.625rem; display: flex; flex-direction: column; gap: .875rem;
+  position: relative;
+}
+.rc-icon-row { display: flex; align-items: flex-start; justify-content: space-between; }
+.rc-icon {
+  width: 44px; height: 44px; border-radius: 11px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.rc-icon svg { width: 20px; height: 20px; stroke: var(--white); }
+.rc-toggle {
+  width: 28px; height: 28px; border-radius: 50%; background: var(--surface);
+  border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
+  transition: background .2s, border-color .2s, transform .3s;
+  flex-shrink: 0;
+}
+.role-card.active .rc-toggle { background: var(--blue); border-color: var(--blue); transform: rotate(45deg); }
+.rc-toggle svg { width: 13px; height: 13px; transition: stroke .2s; }
+.role-card.active .rc-toggle svg { stroke: white; }
+.rc-title { font-size: 1rem; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; line-height: 1.2; }
+.rc-desc { font-size: .8125rem; color: var(--muted); line-height: 1.55; font-weight: 400; }
+.rc-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.rc-pay {
+  font-size: .8rem; font-weight: 700; color: var(--blue);
+  background: var(--grad-soft); border: 1px solid rgba(41,82,255,.14);
+  padding: 4px 10px; border-radius: 100px;
+}
+.rc-badge {
+  font-size: .75rem; font-weight: 600; color: var(--faint);
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 4px 10px; border-radius: 100px;
+}
+
+/* Expandable body */
+.rc-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height .45s cubic-bezier(0.4,0,0.2,1), padding .3s;
+  border-top: 0px solid var(--border);
+}
+.role-card.active .rc-body {
+  max-height: 700px;
+  border-top: 1px solid var(--border);
+}
+.rc-body-inner { padding: 1.625rem; display: flex; flex-direction: column; gap: 1.375rem; }
+.rc-section-label {
+  font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--faint); margin-bottom: .625rem;
+}
+.rc-resp-list { display: flex; flex-direction: column; gap: 8px; }
+.rc-resp-item { display: flex; align-items: flex-start; gap: 10px; }
+.rc-resp-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); margin-top: 5px; flex-shrink: 0; }
+.rc-resp-item span { font-size: .8125rem; color: var(--muted); line-height: 1.5; font-weight: 500; }
+.rc-profile-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.rc-chip {
+  font-size: .75rem; font-weight: 600; color: var(--ink-2);
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 5px 11px; border-radius: 100px;
+}
+.rc-apply-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  background: var(--grad); color: white; border: none;
+  padding: .75rem 1.5rem; border-radius: 100px;
+  font-size: .875rem; font-weight: 700; cursor: pointer;
+  font-family: 'Manrope', sans-serif; width: 100%;
+  transition: opacity .2s, box-shadow .2s;
+  box-shadow: 0 4px 16px rgba(41,82,255,.25);
+  text-decoration: none;
+}
+.rc-apply-btn:hover { opacity: .9; box-shadow: 0 6px 22px rgba(41,82,255,.35); }
+
+/* Wide card for 4th + 5th (2-col last row) */
+.roles-grid .role-card:nth-child(4),
+.roles-grid .role-card:nth-child(5) { grid-column: span 1; }
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  display: flex; align-items: center; gap: 10px;
+  flex-wrap: wrap; margin-bottom: 2.25rem;
+}
+.filter-btn {
+  padding: 7px 16px; border-radius: 100px; font-size: .8125rem; font-weight: 600;
+  border: 1.5px solid var(--border); background: var(--white);
+  color: var(--muted); cursor: pointer; transition: all .2s;
+  font-family: 'Manrope', sans-serif;
+}
+.filter-btn:hover { border-color: var(--blue); color: var(--blue); }
+.filter-btn.active { background: var(--ink); color: white; border-color: var(--ink); }
+.filter-btn.active:hover { background: var(--blue); border-color: var(--blue); }
+.role-card.hidden { display: none; }
+
+/* ── EXPANDED BODY UPGRADE ── */
+.role-card.active .rc-body { max-height: 1200px; }
+
+.rc-body-inner {
+  padding: 0; display: flex; flex-direction: column; gap: 0;
+}
+
+/* Expanded top banner */
+.rc-expand-banner {
+  padding: 1.375rem 1.625rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; gap: 1rem; flex-wrap: wrap;
+}
+.rc-expand-stat {
+  display: flex; flex-direction: column; gap: 2px; min-width: 100px;
+}
+.rc-expand-stat-v { font-size: 1.125rem; font-weight: 800; color: var(--ink); letter-spacing: -0.025em; }
+.rc-expand-stat-l { font-size: .68rem; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .07em; }
+.rc-expand-stat + .rc-expand-stat {
+  padding-left: 1rem; border-left: 1px solid var(--border);
+}
+
+/* Two-col expand grid */
+.rc-expand-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.rc-expand-col {
+  padding: 1.5rem 1.625rem;
+  border-bottom: 1px solid var(--border);
+}
+.rc-expand-col:nth-child(odd) { border-right: 1px solid var(--border); }
+.rc-expand-col.full-width {
+  grid-column: 1 / -1;
+  border-right: none;
+}
+
+/* Day-in-the-life timeline */
+.day-timeline { display: flex; flex-direction: column; gap: 10px; margin-top: .625rem; }
+.day-item { display: flex; gap: 12px; align-items: flex-start; }
+.day-time {
+  font-size: .7rem; font-weight: 700; color: var(--blue);
+  background: var(--grad-soft); border: 1px solid rgba(41,82,255,.14);
+  padding: 3px 8px; border-radius: 6px; white-space: nowrap;
+  min-width: 60px; text-align: center; margin-top: 1px; flex-shrink: 0;
+}
+.day-item span { font-size: .8125rem; color: var(--muted); line-height: 1.5; font-weight: 500; }
+
+/* Tools grid */
+.tools-grid { display: flex; flex-wrap: wrap; gap: 7px; margin-top: .625rem; }
+.tool-chip {
+  display: flex; align-items: center; gap: 5px;
+  font-size: .75rem; font-weight: 600; color: var(--ink-2);
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 5px 11px; border-radius: 8px;
+}
+.tool-chip::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blue); flex-shrink: 0;
+}
+
+/* Earnings calculator */
+.earnings-calc { margin-top: .625rem; }
+.calc-slider-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: .875rem; }
+.calc-slider {
+  flex: 1; -webkit-appearance: none; appearance: none;
+  height: 4px; border-radius: 2px; background: var(--border); outline: none;
+  cursor: pointer;
+}
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--blue); cursor: pointer;
+  box-shadow: 0 2px 8px rgba(41,82,255,.35);
+}
+.calc-slider-label { font-size: .8rem; font-weight: 700; color: var(--muted); min-width: 70px; }
+.calc-result {
+  background: var(--ink); border-radius: 12px; padding: 1rem 1.25rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: .5rem;
+}
+.calc-result-item { text-align: center; }
+.calc-result-v { font-size: 1.125rem; font-weight: 800; color: white; letter-spacing: -0.02em; }
+.calc-result-l { font-size: .65rem; font-weight: 600; color: #4a4a6a; text-transform: uppercase; letter-spacing: .07em; margin-top: 2px; }
+
+/* Requirements list */
+.req-list { display: flex; flex-direction: column; gap: 9px; margin-top: .625rem; }
+.req-item { display: flex; align-items: flex-start; gap: 9px; }
+.req-icon {
+  width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--grad); margin-top: 1px;
+}
+.req-icon svg { width: 10px; height: 10px; stroke: white; stroke-width: 3; }
+.req-item span { font-size: .8125rem; color: var(--muted); font-weight: 500; line-height: 1.5; }
+
+/* Apply footer */
+.rc-apply-footer {
+  padding: 1.375rem 1.625rem;
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+  background: var(--surface); border-top: 1px solid var(--border);
+}
+.rc-apply-footer .rc-apply-btn { flex: 1; min-width: 180px; }
+.rc-training-note {
+  display: flex; align-items: center; gap: 7px;
+  font-size: .78rem; color: var(--faint); font-weight: 500;
+}
+.rc-training-note svg { stroke: var(--green); flex-shrink: 0; }
+
+/* ── TRUST STATS BAR ── */
+.pos-stats-bar {
+  display: flex; align-items: stretch; flex-wrap: wrap;
+  gap: 0; background: var(--white); border: 1px solid var(--border);
+  border-radius: 18px; margin: 2.5rem 0; overflow: hidden;
+}
+.psb-item {
+  flex: 1; min-width: 160px; padding: 1.5rem 1.75rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.psb-icon {
+  width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.psb-val {
+  font-size: 1.5rem; font-weight: 800; color: var(--ink);
+  letter-spacing: -0.03em; line-height: 1;
+}
+.psb-val span { font-size: .9rem; color: var(--blue); font-weight: 700; }
+.psb-label { font-size: .7rem; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; line-height: 1.45; margin-top: 3px; }
+.psb-divider { width: 1px; background: var(--border); flex-shrink: 0; }
+@media (max-width: 800px) {
+  .pos-stats-bar { flex-direction: column; }
+  .psb-divider { width: 100%; height: 1px; }
+  .psb-item { padding: 1.125rem 1.5rem; }
+}
+
+/* ── WHAT MAKES THESE DIFFERENT ── */
+.pos-diff { margin-bottom: 3rem; }
+.pos-diff-header {
+  display: grid; grid-template-columns: 1fr 1.6fr;
+  gap: 2rem; align-items: end; margin-bottom: 1.75rem;
+}
+.pos-diff-title {
+  font-family: 'Manrope', sans-serif; font-size: 1.5rem; font-weight: 800;
+  color: var(--ink); letter-spacing: -0.025em; line-height: 1.2; margin: 0;
+}
+.pos-diff-intro { font-size: .9375rem; color: var(--muted); line-height: 1.7; font-weight: 400; margin: 0; }
+.pos-diff-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;
+}
+.diff-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.375rem 1.5rem; background: var(--white);
+  border: 1px solid var(--border); border-radius: 14px;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+.diff-item:hover { border-color: rgba(41,82,255,.25); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(41,82,255,.07); }
+.diff-icon {
+  width: 38px; height: 38px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.diff-title { font-size: .875rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+.diff-body { font-size: .8rem; color: var(--muted); line-height: 1.65; }
+@media (max-width: 900px) {
+  .pos-diff-header { grid-template-columns: 1fr; gap: 1rem; }
+  .pos-diff-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) { .pos-diff-grid { grid-template-columns: 1fr; } }
+
+/* ── HOW IT WORKS ── */
+.pos-process { margin-bottom: 3rem; }
+.pos-process-header {
+  display: grid; grid-template-columns: 1fr 1.6fr;
+  gap: 2rem; align-items: end; margin-bottom: 1.75rem;
+}
+@media (max-width: 900px) { .pos-process-header { grid-template-columns: 1fr; gap: 1rem; } }
+.process-steps {
+  display: flex; flex-direction: column;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 18px; overflow: hidden;
+}
+.process-step {
+  display: flex; align-items: flex-start; gap: 0;
+  border-bottom: 1px solid var(--border);
+  transition: background .2s;
+}
+.process-step:last-child { border-bottom: none; }
+.process-step:hover { background: rgba(41,82,255,.018); }
+.ps-left {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 1.625rem 0 0 2rem; flex-shrink: 0;
+}
+.ps-num {
+  width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+  background: var(--surface); border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .75rem; font-weight: 800; color: var(--blue);
+  letter-spacing: .02em;
+}
+.ps-num.done {
+  background: var(--grad); border: none; color: white;
+  font-size: 1rem; box-shadow: 0 4px 14px rgba(41,82,255,.3);
+}
+.ps-line {
+  width: 2px; flex: 1; min-height: 1.5rem;
+  background: var(--border); margin: 8px 0;
+}
+.ps-content { padding: 1.625rem 2rem 1.625rem 1.25rem; flex: 1; }
+.ps-title { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em; }
+.ps-body { font-size: .8375rem; color: var(--muted); line-height: 1.7; margin-bottom: .75rem; }
+.ps-time-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: .7rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .07em; color: var(--blue);
+  background: var(--grad-soft); border: 1px solid rgba(41,82,255,.15);
+  padding: 4px 10px; border-radius: 100px;
+}
+
+/* ── POS HEAD spacing fix ── */
+.pos-head { margin-bottom: 0; }
+.why { background: var(--ink); position: relative; overflow: hidden; }
+.why-orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(41,82,255,.18) 0%, transparent 70%); top: -80px; right: -80px; position: absolute; border-radius: 50%; filter: blur(100px); }
+.why-orb-2 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(91,43,232,.15) 0%, transparent 70%); bottom: 0; left: 20%; position: absolute; border-radius: 50%; filter: blur(100px); }
+.why-inner { position: relative; z-index: 2; }
+.why .sec-eyebrow { color: #4f6aff; }
+.why .sec-title { color: #fff; }
+.why .sec-body { color: #7878a0; }
+.why-head { max-width: 600px; margin-bottom: 3rem; }
+.why-strips { display: flex; flex-direction: column; gap: 1px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); }
+.why-strip { display: flex; align-items: center; gap: 2rem; padding: 1.5rem 2rem; background: rgba(255,255,255,.03); transition: background .2s; }
+.why-strip:hover { background: rgba(41,82,255,.1); }
+.why-num { font-size: .72rem; font-weight: 800; color: rgba(41,82,255,.5); letter-spacing: .05em; min-width: 28px; }
+.why-icon { width: 38px; height: 38px; border-radius: 10px; background: rgba(41,82,255,.15); border: 1px solid rgba(41,82,255,.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.why-icon svg { stroke: #4f6aff; width: 17px; height: 17px; }
+.why-h { font-size: .9375rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.why-p { font-size: .8125rem; color: #5a5a80; }
+
+/* ── CTA BAND ── */
+.cta-band { background: var(--white); text-align: center; padding: 8rem 5vw; }
+.cta-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--grad-soft); border: 1px solid rgba(41,82,255,.18);
+  padding: 6px 16px; border-radius: 100px; margin-bottom: 1.75rem;
+}
+.cta-pill span { font-size: .75rem; font-weight: 700; color: var(--blue); }
+.cta-band .sec-title { max-width: 580px; margin: 0 auto 1.25rem; }
+.cta-band .sec-body { max-width: 500px; margin: 0 auto 2.5rem; }
+
+/* ── FORM ── */
+.form-section { background: var(--surface); padding: 6rem 5vw; }
+.form-box {
+  max-width: 700px; margin: 0 auto; background: var(--white);
+  border-radius: 24px; border: 1px solid var(--border);
+  padding: 3.5rem; box-shadow: 0 16px 50px rgba(10,10,30,.07);
+}
+.form-head { margin-bottom: 2.5rem; }
+.form-head .sec-title { margin-bottom: .75rem; }
+.form-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.fg { display: flex; flex-direction: column; gap: 7px; }
+.fg.span2 { grid-column: 1/-1; }
+.fg label { font-size: .8125rem; font-weight: 700; color: var(--ink); }
+.fg input, .fg select, .fg textarea {
+  padding: .8125rem 1rem; border: 1.5px solid var(--border); border-radius: 10px;
+  font-size: .9375rem; color: var(--ink); background: var(--surface);
+  font-family: 'Manrope', sans-serif; font-weight: 500;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+  outline: none; width: 100%;
+}
+.fg input:focus, .fg select:focus, .fg textarea:focus {
+  border-color: var(--blue); background: #fff;
+  box-shadow: 0 0 0 4px rgba(41,82,255,.08);
+}
+.fg input::placeholder, .fg textarea::placeholder { color: #c0c0d4; font-weight: 400; }
+.fg textarea { min-height: 120px; resize: vertical; }
+.fg select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23b0b0c8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; padding-right: 2.5rem;
+}
+.file-drop {
+  border: 2px dashed var(--border); border-radius: 12px; padding: 1.75rem;
+  text-align: center; cursor: pointer; background: var(--surface); transition: all .2s;
+}
+.file-drop:hover { border-color: var(--blue); background: rgba(41,82,255,.03); }
+.file-drop-icon { margin: 0 auto 10px; width: 38px; height: 38px; border-radius: 10px; background: var(--grad-soft); display: flex; align-items: center; justify-content: center; }
+.file-drop-icon svg { stroke: var(--blue); width: 18px; height: 18px; }
+.file-drop-txt { font-size: .875rem; color: var(--faint); }
+.file-drop-txt strong { color: var(--blue); font-weight: 700; }
+.btn-submit {
+  width: 100%; padding: 1rem; background: var(--grad); color: #fff; border: none;
+  border-radius: 100px; font-size: 1rem; font-weight: 700; cursor: pointer;
+  font-family: 'Manrope', sans-serif; transition: opacity .2s, box-shadow .2s;
+  box-shadow: 0 4px 20px rgba(41,82,255,.3); margin-top: .5rem;
+}
+.btn-submit:hover { opacity: .9; box-shadow: 0 6px 30px rgba(41,82,255,.4); }
+.btn-submit.success { background: linear-gradient(135deg,#16a34a,#15803d); box-shadow: none; cursor: default; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink); padding: 2rem 5vw;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255,255,255,.06);
+}
+.footer-logo { font-size: .9375rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
+footer p { font-size: .8125rem; color: #3a3a52; }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .roles-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 960px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-panel { display: none; }
+  nav .nav-right .nav-link { display: none; }
+  section { padding: 4.5rem 5vw; }
+  .form-box { padding: 2rem; }
+}
+@media (max-width: 600px) {
+  .roles-grid { grid-template-columns: 1fr; }
+  .form-fields { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-mark">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M3 3h10L8 8.5 3 3z" fill="white" opacity=".9"/><path d="M8 8.5L13 13H3l5-4.5z" fill="white" opacity=".6"/></svg>
+    </div>
+    DataOps&nbsp;<span style="color:var(--blue)">Careers</span>
+  </a>
+  <div class="nav-right">
+    <a href="#positions" class="nav-link">Open Roles</a>
+    <a href="#why" class="nav-link">Why Join</a>
+    <a href="#apply" class="nav-btn">Apply Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="hero-inner container">
+    <div>
+      <div class="hero-pill">
+        <div class="hero-pill-mark">
+          <svg width="10" height="10" fill="none" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="white"/></svg>
+        </div>
+        <span>5 Remote Positions Now Open</span>
+      </div>
+      <h1>Remote <em>Careers</em><br>Built for You</h1>
+      <p class="hero-sub">Earn $25–$30/hr — flexible scheduling — work from anywhere.</p>
+      <p class="hero-body">We're expanding our remote operations team and hiring across five roles. All positions are 100% remote, fully trained, and open to applicants with no prior specialized experience.</p>
+      <div class="hero-actions">
+        <a href="#positions" class="btn-grad">Browse Open Roles</a>
+        <a href="#apply" class="btn-outline">
+          Apply Now
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="hero-panel">
+        <div class="hp-top">
+          <div>
+            <div class="hp-label">Open Positions</div>
+            <div class="hp-sub">Data &amp; Admin Operations</div>
+          </div>
+          <div class="hp-open"><div class="hp-dot"></div><span>Hiring</span></div>
+        </div>
+        <div class="hp-stats">
+          <div class="hp-stat"><div class="hp-stat-v">5</div><div class="hp-stat-l">Open roles</div></div>
+          <div class="hp-stat"><div class="hp-stat-v">$30</div><div class="hp-stat-l">Up to / hour</div></div>
+          <div class="hp-stat"><div class="hp-stat-v">100%</div><div class="hp-stat-l">Remote</div></div>
+          <div class="hp-stat"><div class="hp-stat-v">2</div><div class="hp-stat-l">Schedule types</div></div>
+        </div>
+        <div class="hp-roles">
+          <div class="hp-role-row"><span class="hp-role-name">Data Entry Specialist</span><span class="hp-role-pay">$30/hr</span></div>
+          <div class="hp-role-row"><span class="hp-role-name">Virtual Assistant</span><span class="hp-role-pay">$28/hr</span></div>
+          <div class="hp-role-row"><span class="hp-role-name">Online Research Analyst</span><span class="hp-role-pay">$27/hr</span></div>
+          <div class="hp-role-row"><span class="hp-role-name">Document Review Specialist</span><span class="hp-role-pay">$28/hr</span></div>
+          <div class="hp-role-row"><span class="hp-role-name">Customer Support Rep</span><span class="hp-role-pay">$25/hr</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSITIONS -->
+<section class="positions" id="positions">
+  <div class="container">
+    <!-- ── SECTION HEADER ── -->
+    <div class="pos-head reveal">
+      <div class="pos-count">
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3"/></svg>
+        5 Positions Available — All Remote — Training Provided
+      </div>
+      <div class="sec-eyebrow">Open Roles</div>
+      <h2 class="sec-title" style="margin-bottom:.875rem">Find your remote position.</h2>
+      <p class="sec-body" style="max-width:700px">Every role below is 100% remote, comes with a structured training program, and is open to applicants without prior specialized experience. Select any position to explore responsibilities, a typical workday, the tools you'll use, and your earning potential — then apply directly.</p>
+    </div>
+
+    <!-- ── TRUST STATS BAR ── -->
+    <div class="pos-stats-bar reveal">
+      <div class="psb-item">
+        <div class="psb-icon" style="background:rgba(41,82,255,.08)">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#2952ff" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div>
+          <div class="psb-val">1,200<span>+</span></div>
+          <div class="psb-label">Applicants hired remotely to date</div>
+        </div>
+      </div>
+      <div class="psb-divider"></div>
+      <div class="psb-item">
+        <div class="psb-icon" style="background:rgba(22,163,74,.08)">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#16a34a" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <div class="psb-val">1–2<span>hrs</span></div>
+          <div class="psb-label">Average response time after applying</div>
+        </div>
+      </div>
+      <div class="psb-divider"></div>
+      <div class="psb-item">
+        <div class="psb-icon" style="background:rgba(91,43,232,.08)">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#7c3aed" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <div class="psb-val">$25–$30<span>/hr</span></div>
+          <div class="psb-label">Transparent pay across all 5 roles</div>
+        </div>
+      </div>
+      <div class="psb-divider"></div>
+      <div class="psb-item">
+        <div class="psb-icon" style="background:rgba(8,145,178,.08)">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#0891b2" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <div class="psb-val">0<span>yrs</span></div>
+          <div class="psb-label">Prior experience required to apply</div>
+        </div>
+      </div>
+      <div class="psb-divider"></div>
+      <div class="psb-item">
+        <div class="psb-icon" style="background:rgba(180,83,9,.08)">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#b45309" stroke-width="2"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        </div>
+        <div>
+          <div class="psb-val">100<span>%</span></div>
+          <div class="psb-label">Remote — work from anywhere, always</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WHAT MAKES THESE DIFFERENT ── -->
+    <div class="pos-diff reveal">
+      <div class="pos-diff-header">
+        <div class="pos-diff-left">
+          <div class="sec-eyebrow" style="margin-bottom:.5rem">What sets us apart</div>
+          <h3 class="pos-diff-title">Not your typical remote listing.</h3>
+        </div>
+        <p class="pos-diff-intro">Most remote job boards recycle the same vague postings. Here's what makes these roles genuinely different — and why over 1,200 people have chosen to work with us.</p>
+      </div>
+      <div class="pos-diff-grid">
+        <div class="diff-item">
+          <div class="diff-icon" style="background:linear-gradient(135deg,#2952ff,#5b2be8)">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="diff-title">Stable positions — not gig work</div>
+            <div class="diff-body">These are ongoing, structured roles with consistent weekly hours and a defined scope of work. No one-off tasks, no unpredictable assignments, no wondering if work is coming. You know exactly what you signed up for.</div>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon" style="background:linear-gradient(135deg,#0891b2,#0e7490)">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <div>
+            <div class="diff-title">Training built in from day one</div>
+            <div class="diff-body">Every hire goes through a structured onboarding and training program before handling any live work. We don't assume you know — we teach you. By the time you start your first task, you'll be fully prepared.</div>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon" style="background:linear-gradient(135deg,#7c3aed,#6d28d9)">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="diff-title">Pay is transparent from the start</div>
+            <div class="diff-body">Every role shows its exact hourly rate right on the card — $25 to $30 per hour, depending on position. No commission-only traps, no "competitive salary" vagueness, no post-offer surprises. What you see is what you earn.</div>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon" style="background:linear-gradient(135deg,#059669,#047857)">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="diff-title">Your schedule, your terms</div>
+            <div class="diff-body">Choose part-time (20–30 hrs) or full-time (30–40 hrs) and distribute your hours across the week however works best for you — around family, school, or a second job. The structure flexes to your life, not the other way around.</div>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon" style="background:linear-gradient(135deg,#b45309,#92400e)">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <div class="diff-title">No experience gatekeeping</div>
+            <div class="diff-body">Most remote listings quietly require 2–3 years of prior experience. We don't. If you can follow a clear process, stay consistent, and pay attention to detail — those are the only qualifications that actually matter here.</div>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon" style="background:linear-gradient(135deg,#0f172a,#1e3a5f)">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <div class="diff-title">Fast, respectful hiring — always</div>
+            <div class="diff-body">Every application is personally reviewed. Most candidates receive a response within 1–2 hours during operating hours. No ghosting, no week-long silences, no form rejection emails. You get a real answer, either way, promptly.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── HOW THE PROCESS WORKS ── -->
+    <div class="pos-process reveal">
+      <div class="pos-process-header">
+        <div class="pos-diff-left">
+          <div class="sec-eyebrow" style="margin-bottom:.5rem">How it works</div>
+          <h3 class="pos-diff-title">From application to first day.</h3>
+        </div>
+        <p class="pos-diff-intro">No surprises, no ambiguity. Here is the exact sequence of events from the moment you apply to the moment you log in for your first shift.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="ps-left">
+            <div class="ps-num">01</div>
+            <div class="ps-line"></div>
+          </div>
+          <div class="ps-content">
+            <div class="ps-title">Browse &amp; Select a Role Below</div>
+            <div class="ps-body">Click any of the five role cards to expand the full job details — responsibilities, a sample workday, tools you'll use, and an interactive earnings estimator. Take your time. Read everything. Then choose the position that matches your schedule, skills, and goals.</div>
+            <div class="ps-time-chip">Takes 5 minutes</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="ps-left">
+            <div class="ps-num">02</div>
+            <div class="ps-line"></div>
+          </div>
+          <div class="ps-content">
+            <div class="ps-title">Complete the 6-Step Mini Interview</div>
+            <div class="ps-body">Our application is built as a structured mini interview — not a boring form. You'll move through eligibility questions, a knowledge check on topics like disbursement and company privacy policy, background questions, and a section where you tell us about yourself. Be honest, be specific, and be thorough. No resume required, though you're welcome to upload one.</div>
+            <div class="ps-time-chip">Takes 10–15 minutes</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="ps-left">
+            <div class="ps-num">03</div>
+            <div class="ps-line"></div>
+          </div>
+          <div class="ps-content">
+            <div class="ps-title">Personal Review by Head Department</div>
+            <div class="ps-body">Every completed application is read by a member of our hiring team — not filtered by a bot. We look at your eligibility, availability, knowledge responses, and how clearly you communicate. Strong, genuine answers stand out. Most applicants receive a decision within 1–2 hours during operating hours. You will always receive a response.</div>
+            <div class="ps-time-chip">Within 1–2 hours</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="ps-left">
+            <div class="ps-num">04</div>
+            <div class="ps-line"></div>
+          </div>
+          <div class="ps-content">
+            <div class="ps-title">Formal Offer &amp; Secure Onboarding</div>
+            <div class="ps-body">If selected, you'll receive a formal written offer by email outlining your role, rate, schedule type, and start date. Once accepted, you'll complete a brief onboarding package — including secure collection of your payment and tax details (W-9 or W-4) and access credentials for your tools. This is handled securely, never at the application stage.</div>
+            <div class="ps-time-chip">Same day or next business day</div>
+          </div>
+        </div>
+        <div class="process-step last">
+          <div class="ps-left">
+            <div class="ps-num done">✓</div>
+          </div>
+          <div class="ps-content">
+            <div class="ps-title">First Day — You Start</div>
+            <div class="ps-body">Log in, run through your orientation checklist, and begin your first assigned tasks. Your assigned supervisor is available throughout your first week to answer questions. Most new team members feel comfortable and independently productive within 3–5 days. Welcome aboard.</div>
+            <div class="ps-time-chip">Week 1 — structured &amp; supported</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" onclick="filterCards('all', this)">All Roles</button>
+      <button class="filter-btn" onclick="filterCards('data', this)">Data &amp; Entry</button>
+      <button class="filter-btn" onclick="filterCards('admin', this)">Admin &amp; Support</button>
+      <button class="filter-btn" onclick="filterCards('research', this)">Research</button>
+      <button class="filter-btn" onclick="filterCards('fulltime', this)">Full-Time Available</button>
+    </div>
+
+    <div class="roles-grid" id="rolesGrid">
+
+      <!-- ═══ ROLE 1: Data Entry Specialist ═══ -->
+      <div class="role-card" data-tags="data fulltime" onclick="toggleCard(this)">
+        <div class="rc-header">
+          <div class="rc-icon-row">
+            <div class="rc-icon" style="background:linear-gradient(135deg,#2952ff,#5b2be8)">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            </div>
+            <div class="rc-toggle">
+              <svg fill="none" viewBox="0 0 24 24" stroke="#5a5a72" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/></svg>
+            </div>
+          </div>
+          <div class="rc-title">Data Entry Specialist</div>
+          <div class="rc-desc">The backbone of our data operations. You'll input, verify, and maintain records across internal systems — precision and consistency are everything in this role. No experience needed; we train you end-to-end.</div>
+          <div class="rc-meta">
+            <span class="rc-pay">$30 / hr</span>
+            <span class="rc-badge">Part-Time or Full-Time</span>
+            <span class="rc-badge">🌐 Remote</span>
+          </div>
+        </div>
+        <div class="rc-body">
+          <div class="rc-body-inner">
+            <!-- Stats banner -->
+            <div class="rc-expand-banner">
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">$30/hr</div><div class="rc-expand-stat-l">Hourly Rate</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">20–40h</div><div class="rc-expand-stat-l">Weekly Hours</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">Week 1</div><div class="rc-expand-stat-l">Training Start</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">0 yrs</div><div class="rc-expand-stat-l">Exp. Required</div></div>
+            </div>
+            <!-- Two-col grid -->
+            <div class="rc-expand-grid">
+              <!-- Col 1: Responsibilities -->
+              <div class="rc-expand-col">
+                <div class="rc-section-label">Responsibilities</div>
+                <div class="rc-resp-list">
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Accurately input data from reports, PDFs, and source documents into internal systems</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Build and manage spreadsheets containing high volumes of numerical data</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Cross-verify all entries against source materials for accuracy</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Update, clean, and maintain existing database records</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Execute routine data backups to preserve system integrity</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Flag inconsistencies and report data quality issues to team lead</span></div>
+                </div>
+              </div>
+              <!-- Col 2: A Day in This Role -->
+              <div class="rc-expand-col">
+                <div class="rc-section-label">A Day in This Role</div>
+                <div class="day-timeline">
+                  <div class="day-item"><div class="day-time">9:00 AM</div><span>Review daily task queue and open assigned data files</span></div>
+                  <div class="day-item"><div class="day-time">9:30 AM</div><span>Begin data input from source documents into spreadsheets</span></div>
+                  <div class="day-item"><div class="day-time">12:00 PM</div><span>Run verification pass — check entries against source records</span></div>
+                  <div class="day-item"><div class="day-time">1:00 PM</div><span>Continue data entry on second batch of assigned files</span></div>
+                  <div class="day-item"><div class="day-time">3:30 PM</div><span>Submit completed work, log output, perform backup</span></div>
+                </div>
+              </div>
+              <!-- Col 3: Tools -->
+              <div class="rc-expand-col">
+                <div class="rc-section-label">Tools You'll Use</div>
+                <div class="tools-grid">
+                  <span class="tool-chip">Google Sheets</span>
+                  <span class="tool-chip">Microsoft Excel</span>
+                  <span class="tool-chip">Internal CMS</span>
+                  <span class="tool-chip">Google Drive</span>
+                  <span class="tool-chip">Slack</span>
+                  <span class="tool-chip">PDF Reader</span>
+                </div>
+              </div>
+              <!-- Col 4: Requirements -->
+              <div class="rc-expand-col">
+                <div class="rc-section-label">What You'll Need</div>
+                <div class="req-list">
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Basic computer literacy — typing and spreadsheet familiarity</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>High attention to detail — accuracy over speed</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Reliable internet connection (minimum 10 Mbps)</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Ability to work independently with minimal supervision</span></div>
+                </div>
+              </div>
+              <!-- Full-width: Earnings Calculator -->
+              <div class="rc-expand-col full-width">
+                <div class="rc-section-label">Earnings Estimator</div>
+                <div class="earnings-calc">
+                  <div class="calc-slider-wrap">
+                    <span class="calc-slider-label" id="de-hrs-label">20 hrs/wk</span>
+                    <input type="range" class="calc-slider" id="de-slider" min="20" max="40" value="20" step="1" oninput="calcEarnings('de', 30, this.value)">
+                  </div>
+                  <div class="calc-result">
+                    <div class="calc-result-item"><div class="calc-result-v" id="de-weekly">$600</div><div class="calc-result-l">Per Week</div></div>
+                    <div class="calc-result-item"><div class="calc-result-v" id="de-monthly">$2,400</div><div class="calc-result-l">Per Month (est.)</div></div>
+                    <div class="calc-result-item"><div class="calc-result-v" id="de-annual">$28,800</div><div class="calc-result-l">Per Year (est.)</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Apply footer -->
+            <div class="rc-apply-footer">
+              <a href="#apply" class="rc-apply-btn" onclick="prefillRole('Data Entry Specialist')">
+                Apply for This Role
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+              <div class="rc-training-note">
+                <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                Full training provided — start with no prior experience
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ ROLE 2: Virtual Assistant ═══ -->
+      <div class="role-card" data-tags="admin fulltime" onclick="toggleCard(this)">
+        <div class="rc-header">
+          <div class="rc-icon-row">
+            <div class="rc-icon" style="background:linear-gradient(135deg,#0891b2,#0e7490)">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <div class="rc-toggle">
+              <svg fill="none" viewBox="0 0 24 24" stroke="#5a5a72" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/></svg>
+            </div>
+          </div>
+          <div class="rc-title">Virtual Assistant</div>
+          <div class="rc-desc">Keep operations running smoothly from wherever you are. You'll manage calendars, handle correspondence, and coordinate tasks — becoming an invisible engine behind a productive remote team.</div>
+          <div class="rc-meta">
+            <span class="rc-pay">$28 / hr</span>
+            <span class="rc-badge">Part-Time or Full-Time</span>
+            <span class="rc-badge">🌐 Remote</span>
+          </div>
+        </div>
+        <div class="rc-body">
+          <div class="rc-body-inner">
+            <div class="rc-expand-banner">
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">$28/hr</div><div class="rc-expand-stat-l">Hourly Rate</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">20–40h</div><div class="rc-expand-stat-l">Weekly Hours</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">Week 1</div><div class="rc-expand-stat-l">Training Start</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">0 yrs</div><div class="rc-expand-stat-l">Exp. Required</div></div>
+            </div>
+            <div class="rc-expand-grid">
+              <div class="rc-expand-col">
+                <div class="rc-section-label">Responsibilities</div>
+                <div class="rc-resp-list">
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Manage executive calendars, appointments, and meeting coordination</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Draft, format, and send routine email correspondence on behalf of team leads</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Organise digital file systems and shared drives for easy team retrieval</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Track task completion and follow up with internal stakeholders</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Prepare concise reports, meeting summaries, and status updates</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Handle basic research requests and compile findings into briefings</span></div>
+                </div>
+              </div>
+              <div class="rc-expand-col">
+                <div class="rc-section-label">A Day in This Role</div>
+                <div class="day-timeline">
+                  <div class="day-item"><div class="day-time">8:30 AM</div><span>Review inbox, prioritise messages, flag urgent items</span></div>
+                  <div class="day-item"><div class="day-time">9:00 AM</div><span>Update calendar, confirm meetings, send reminders</span></div>
+                  <div class="day-item"><div class="day-time">11:00 AM</div><span>Draft correspondence and prepare briefing documents</span></div>
+                  <div class="day-item"><div class="day-time">1:30 PM</div><span>Organise shared files and complete task tracking updates</span></div>
+                  <div class="day-item"><div class="day-time">4:00 PM</div><span>Prepare end-of-day summary and set tomorrow's task list</span></div>
+                </div>
+              </div>
+              <div class="rc-expand-col">
+                <div class="rc-section-label">Tools You'll Use</div>
+                <div class="tools-grid">
+                  <span class="tool-chip">Google Calendar</span>
+                  <span class="tool-chip">Gmail</span>
+                  <span class="tool-chip">Notion</span>
+                  <span class="tool-chip">Google Docs</span>
+                  <span class="tool-chip">Slack</span>
+                  <span class="tool-chip">Trello</span>
+                  <span class="tool-chip">Zoom</span>
+                </div>
+              </div>
+              <div class="rc-expand-col">
+                <div class="rc-section-label">What You'll Need</div>
+                <div class="req-list">
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Strong written communication skills in English</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Highly organised with ability to juggle multiple tasks</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Comfortable with cloud-based productivity tools</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Proactive, self-starting attitude</span></div>
+                </div>
+              </div>
+              <div class="rc-expand-col full-width">
+                <div class="rc-section-label">Earnings Estimator</div>
+                <div class="earnings-calc">
+                  <div class="calc-slider-wrap">
+                    <span class="calc-slider-label" id="va-hrs-label">20 hrs/wk</span>
+                    <input type="range" class="calc-slider" id="va-slider" min="20" max="40" value="20" step="1" oninput="calcEarnings('va', 28, this.value)">
+                  </div>
+                  <div class="calc-result">
+                    <div class="calc-result-item"><div class="calc-result-v" id="va-weekly">$560</div><div class="calc-result-l">Per Week</div></div>
+                    <div class="calc-result-item"><div class="calc-result-v" id="va-monthly">$2,240</div><div class="calc-result-l">Per Month (est.)</div></div>
+                    <div class="calc-result-item"><div class="calc-result-v" id="va-annual">$26,880</div><div class="calc-result-l">Per Year (est.)</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rc-apply-footer">
+              <a href="#apply" class="rc-apply-btn" onclick="prefillRole('Virtual Assistant')">Apply for This Role <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+              <div class="rc-training-note"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Full training provided — start with no prior experience</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ ROLE 3: Online Research Analyst ═══ -->
+      <div class="role-card" data-tags="research fulltime" onclick="toggleCard(this)">
+        <div class="rc-header">
+          <div class="rc-icon-row">
+            <div class="rc-icon" style="background:linear-gradient(135deg,#7c3aed,#6d28d9)">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+            <div class="rc-toggle">
+              <svg fill="none" viewBox="0 0 24 24" stroke="#5a5a72" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/></svg>
+            </div>
+          </div>
+          <div class="rc-title">Online Research Analyst</div>
+          <div class="rc-desc">Turn the open internet into structured, usable intelligence. You'll conduct targeted research, validate sources, and deliver clean summary reports that directly inform operational decisions across the business.</div>
+          <div class="rc-meta">
+            <span class="rc-pay">$27 / hr</span>
+            <span class="rc-badge">Part-Time or Full-Time</span>
+            <span class="rc-badge">🌐 Remote</span>
+          </div>
+        </div>
+        <div class="rc-body">
+          <div class="rc-body-inner">
+            <div class="rc-expand-banner">
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">$27/hr</div><div class="rc-expand-stat-l">Hourly Rate</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">20–40h</div><div class="rc-expand-stat-l">Weekly Hours</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">Week 1</div><div class="rc-expand-stat-l">Training Start</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">0 yrs</div><div class="rc-expand-stat-l">Exp. Required</div></div>
+            </div>
+            <div class="rc-expand-grid">
+              <div class="rc-expand-col">
+                <div class="rc-section-label">Responsibilities</div>
+                <div class="rc-resp-list">
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Conduct structured web research on topics assigned by team leads</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Cross-validate data across multiple credible online sources</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Compile findings into clearly structured written summary reports</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Organise and file research materials for team retrieval</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Identify and flag contradictions, gaps, or unreliable sources</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Meet daily output targets and submit work via internal platform</span></div>
+                </div>
+              </div>
+              <div class="rc-expand-col">
+                <div class="rc-section-label">A Day in This Role</div>
+                <div class="day-timeline">
+                  <div class="day-item"><div class="day-time">9:00 AM</div><span>Receive research brief and define scope of investigation</span></div>
+                  <div class="day-item"><div class="day-time">9:30 AM</div><span>Begin primary research — source collection and reading</span></div>
+                  <div class="day-item"><div class="day-time">12:00 PM</div><span>Cross-validate key findings across independent sources</span></div>
+                  <div class="day-item"><div class="day-time">1:30 PM</div><span>Write structured summary report with citations</span></div>
+                  <div class="day-item"><div class="day-time">4:00 PM</div><span>Submit deliverables and log completed research tasks</span></div>
+                </div>
+              </div>
+              <div class="rc-expand-col">
+                <div class="rc-section-label">Tools You'll Use</div>
+                <div class="tools-grid">
+                  <span class="tool-chip">Google Search</span>
+                  <span class="tool-chip">Google Docs</span>
+                  <span class="tool-chip">Airtable</span>
+                  <span class="tool-chip">Slack</span>
+                  <span class="tool-chip">Notion</span>
+                  <span class="tool-chip">Web Archive</span>
+                </div>
+              </div>
+              <div class="rc-expand-col">
+                <div class="rc-section-label">What You'll Need</div>
+                <div class="req-list">
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Strong reading comprehension and information synthesis skills</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Ability to evaluate source credibility and identify bias</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Clear written communication for report delivery</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Curiosity, thoroughness, and consistent follow-through</span></div>
+                </div>
+              </div>
+              <div class="rc-expand-col full-width">
+                <div class="rc-section-label">Earnings Estimator</div>
+                <div class="earnings-calc">
+                  <div class="calc-slider-wrap">
+                    <span class="calc-slider-label" id="ra-hrs-label">20 hrs/wk</span>
+                    <input type="range" class="calc-slider" id="ra-slider" min="20" max="40" value="20" step="1" oninput="calcEarnings('ra', 27, this.value)">
+                  </div>
+                  <div class="calc-result">
+                    <div class="calc-result-item"><div class="calc-result-v" id="ra-weekly">$540</div><div class="calc-result-l">Per Week</div></div>
+                    <div class="calc-result-item"><div class="calc-result-v" id="ra-monthly">$2,160</div><div class="calc-result-l">Per Month (est.)</div></div>
+                    <div class="calc-result-item"><div class="calc-result-v" id="ra-annual">$25,920</div><div class="calc-result-l">Per Year (est.)</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rc-apply-footer">
+              <a href="#apply" class="rc-apply-btn" onclick="prefillRole('Online Research Analyst')">Apply for This Role <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+              <div class="rc-training-note"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Full training provided — start with no prior experience</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ ROLE 4: Document Review Specialist ═══ -->
+      <div class="role-card" data-tags="data admin fulltime" onclick="toggleCard(this)">
+        <div class="rc-header">
+          <div class="rc-icon-row">
+            <div class="rc-icon" style="background:linear-gradient(135deg,#b45309,#92400e)">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <div class="rc-toggle">
+              <svg fill="none" viewBox="0 0 24 24" stroke="#5a5a72" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/></svg>
+            </div>
+          </div>
+          <div class="rc-title">Document Review Specialist</div>
+          <div class="rc-desc">Quality is your standard. You'll audit documents for completeness, accuracy, and compliance — acting as the last line of defense before data enters our live systems. Methodical thinkers thrive here.</div>
+          <div class="rc-meta">
+            <span class="rc-pay">$28 / hr</span>
+            <span class="rc-badge">Part-Time or Full-Time</span>
+            <span class="rc-badge">🌐 Remote</span>
+          </div>
+        </div>
+        <div class="rc-body">
+          <div class="rc-body-inner">
+            <div class="rc-expand-banner">
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">$28/hr</div><div class="rc-expand-stat-l">Hourly Rate</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">20–40h</div><div class="rc-expand-stat-l">Weekly Hours</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">Week 1</div><div class="rc-expand-stat-l">Training Start</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">0 yrs</div><div class="rc-expand-stat-l">Exp. Required</div></div>
+            </div>
+            <div class="rc-expand-grid">
+              <div class="rc-expand-col">
+                <div class="rc-section-label">Responsibilities</div>
+                <div class="rc-resp-list">
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Review documents for completeness, accuracy, and internal consistency</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Classify and tag documents using internal categorisation standards</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Identify missing fields, errors, and non-compliant entries</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Maintain a detailed review log with outcome notes per document</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Escalate flagged documents to the data quality team for resolution</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Meet daily review quotas while maintaining quality benchmarks</span></div>
+                </div>
+              </div>
+              <div class="rc-expand-col">
+                <div class="rc-section-label">A Day in This Role</div>
+                <div class="day-timeline">
+                  <div class="day-item"><div class="day-time">9:00 AM</div><span>Open daily document queue — review volume and priority flags</span></div>
+                  <div class="day-item"><div class="day-time">9:15 AM</div><span>Begin systematic review: check fields, tags, completeness</span></div>
+                  <div class="day-item"><div class="day-time">12:00 PM</div><span>Log findings, flag issues, submit morning batch</span></div>
+                  <div class="day-item"><div class="day-time">1:00 PM</div><span>Continue afternoon review queue with fresh focus</span></div>
+                  <div class="day-item"><div class="day-time">4:30 PM</div><span>Final QA pass, submit logs, and close out daily report</span></div>
+                </div>
+              </div>
+              <div class="rc-expand-col">
+                <div class="rc-section-label">Tools You'll Use</div>
+                <div class="tools-grid">
+                  <span class="tool-chip">Internal Review Portal</span>
+                  <span class="tool-chip">Google Sheets</span>
+                  <span class="tool-chip">Adobe Acrobat</span>
+                  <span class="tool-chip">Slack</span>
+                  <span class="tool-chip">Airtable</span>
+                </div>
+              </div>
+              <div class="rc-expand-col">
+                <div class="rc-section-label">What You'll Need</div>
+                <div class="req-list">
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Exceptional attention to detail — you catch what others miss</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Ability to maintain concentration across high document volumes</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Process-oriented mindset — you follow procedure precisely</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Reliable availability during agreed working windows</span></div>
+                </div>
+              </div>
+              <div class="rc-expand-col full-width">
+                <div class="rc-section-label">Earnings Estimator</div>
+                <div class="earnings-calc">
+                  <div class="calc-slider-wrap">
+                    <span class="calc-slider-label" id="dr-hrs-label">20 hrs/wk</span>
+                    <input type="range" class="calc-slider" id="dr-slider" min="20" max="40" value="20" step="1" oninput="calcEarnings('dr', 28, this.value)">
+                  </div>
+                  <div class="calc-result">
+                    <div class="calc-result-item"><div class="calc-result-v" id="dr-weekly">$560</div><div class="calc-result-l">Per Week</div></div>
+                    <div class="calc-result-item"><div class="calc-result-v" id="dr-monthly">$2,240</div><div class="calc-result-l">Per Month (est.)</div></div>
+                    <div class="calc-result-item"><div class="calc-result-v" id="dr-annual">$26,880</div><div class="calc-result-l">Per Year (est.)</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rc-apply-footer">
+              <a href="#apply" class="rc-apply-btn" onclick="prefillRole('Document Review Specialist')">Apply for This Role <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+              <div class="rc-training-note"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Full training provided — start with no prior experience</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ ROLE 5: Customer Support Representative ═══ -->
+      <div class="role-card" data-tags="admin fulltime" onclick="toggleCard(this)">
+        <div class="rc-header">
+          <div class="rc-icon-row">
+            <div class="rc-icon" style="background:linear-gradient(135deg,#059669,#047857)">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            </div>
+            <div class="rc-toggle">
+              <svg fill="none" viewBox="0 0 24 24" stroke="#5a5a72" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/></svg>
+            </div>
+          </div>
+          <div class="rc-title">Customer Support Representative</div>
+          <div class="rc-desc">Be the voice people trust when they need help. You'll resolve inbound queries through email and chat — turning frustrated users into satisfied ones through clear communication, patience, and genuine problem-solving.</div>
+          <div class="rc-meta">
+            <span class="rc-pay">$25 / hr</span>
+            <span class="rc-badge">Part-Time or Full-Time</span>
+            <span class="rc-badge">🌐 Remote</span>
+          </div>
+        </div>
+        <div class="rc-body">
+          <div class="rc-body-inner">
+            <div class="rc-expand-banner">
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">$25/hr</div><div class="rc-expand-stat-l">Hourly Rate</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">20–40h</div><div class="rc-expand-stat-l">Weekly Hours</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">Week 1</div><div class="rc-expand-stat-l">Training Start</div></div>
+              <div class="rc-expand-stat"><div class="rc-expand-stat-v">0 yrs</div><div class="rc-expand-stat-l">Exp. Required</div></div>
+            </div>
+            <div class="rc-expand-grid">
+              <div class="rc-expand-col">
+                <div class="rc-section-label">Responsibilities</div>
+                <div class="rc-resp-list">
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Respond to inbound customer queries via email and live chat within SLA targets</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Diagnose issues, provide clear resolutions, and confirm customer understanding</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Escalate complex or unresolvable cases to second-line support with full notes</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Log every interaction accurately in the support ticketing system</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Maintain quality scores and customer satisfaction ratings above team benchmark</span></div>
+                  <div class="rc-resp-item"><div class="rc-resp-dot"></div><span>Identify recurring issues and report patterns to team lead weekly</span></div>
+                </div>
+              </div>
+              <div class="rc-expand-col">
+                <div class="rc-section-label">A Day in This Role</div>
+                <div class="day-timeline">
+                  <div class="day-item"><div class="day-time">9:00 AM</div><span>Log in, review open tickets, triage by urgency</span></div>
+                  <div class="day-item"><div class="day-time">9:30 AM</div><span>Begin working through queue — email responses first</span></div>
+                  <div class="day-item"><div class="day-time">11:00 AM</div><span>Switch to live chat window — handle real-time queries</span></div>
+                  <div class="day-item"><div class="day-time">2:00 PM</div><span>Escalate complex tickets, follow up on pending resolutions</span></div>
+                  <div class="day-item"><div class="day-time">4:30 PM</div><span>Close tickets, log outcomes, note any pattern issues</span></div>
+                </div>
+              </div>
+              <div class="rc-expand-col">
+                <div class="rc-section-label">Tools You'll Use</div>
+                <div class="tools-grid">
+                  <span class="tool-chip">Zendesk</span>
+                  <span class="tool-chip">Intercom</span>
+                  <span class="tool-chip">Gmail</span>
+                  <span class="tool-chip">Slack</span>
+                  <span class="tool-chip">Notion</span>
+                  <span class="tool-chip">Google Sheets</span>
+                </div>
+              </div>
+              <div class="rc-expand-col">
+                <div class="rc-section-label">What You'll Need</div>
+                <div class="req-list">
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Clear, empathetic written communication in English</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Patience and composure when handling frustrated users</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Problem-solving ability — you find solutions, not excuses</span></div>
+                  <div class="req-item"><div class="req-icon"><svg fill="none" viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></div><span>Reliable internet and consistent availability during shift</span></div>
+                </div>
+              </div>
+              <div class="rc-expand-col full-width">
+                <div class="rc-section-label">Earnings Estimator</div>
+                <div class="earnings-calc">
+                  <div class="calc-slider-wrap">
+                    <span class="calc-slider-label" id="cs-hrs-label">20 hrs/wk</span>
+                    <input type="range" class="calc-slider" id="cs-slider" min="20" max="40" value="20" step="1" oninput="calcEarnings('cs', 25, this.value)">
+                  </div>
+                  <div class="calc-result">
+                    <div class="calc-result-item"><div class="calc-result-v" id="cs-weekly">$500</div><div class="calc-result-l">Per Week</div></div>
+                    <div class="calc-result-item"><div class="calc-result-v" id="cs-monthly">$2,000</div><div class="calc-result-l">Per Month (est.)</div></div>
+                    <div class="calc-result-item"><div class="calc-result-v" id="cs-annual">$24,000</div><div class="calc-result-l">Per Year (est.)</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rc-apply-footer">
+              <a href="#apply" class="rc-apply-btn" onclick="prefillRole('Customer Support Representative')">Apply for This Role <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+              <div class="rc-training-note"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Full training provided — start with no prior experience</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end roles-grid -->
+  </div>
+</section>
+
+<!-- WHY JOIN -->
+<section class="why" id="why">
+  <div class="why-orb-1"></div>
+  <div class="why-orb-2"></div>
+  <div class="container why-inner">
+    <div class="why-head reveal">
+      <div class="sec-eyebrow" style="color:#4f6aff">Why Join</div>
+      <h2 class="sec-title" style="color:#fff;margin-bottom:.875rem">Why Join Our Remote Team</h2>
+      <p class="sec-body">A structured, stable remote opportunity with competitive pay, a clear training path, and the freedom to work from anywhere.</p>
+    </div>
+    <div class="why-strips reveal">
+      <div class="why-strip"><div class="why-num">01</div><div class="why-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><div><div class="why-h">Location Freedom</div><div class="why-p">Work from home, a co-working space, or anywhere with reliable internet.</div></div></div>
+      <div class="why-strip"><div class="why-num">02</div><div class="why-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div><div><div class="why-h">Flexible Scheduling</div><div class="why-p">Part-time or full-time — choose the schedule that fits your life.</div></div></div>
+      <div class="why-strip"><div class="why-num">03</div><div class="why-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><div class="why-h">Competitive Pay</div><div class="why-p">$25–$30 per hour across all roles, paid on a structured cycle.</div></div></div>
+      <div class="why-strip"><div class="why-num">04</div><div class="why-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div><div><div class="why-h">Full Training Provided</div><div class="why-p">No prior specialized experience required — we prepare you fully before you start.</div></div></div>
+      <div class="why-strip"><div class="why-num">05</div><div class="why-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div><div><div class="why-h">Stable, Ongoing Work</div><div class="why-p">Consistent positions — not gig work. Reliable income you can plan around.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container reveal">
+    <div class="cta-pill">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--blue)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+      <span>Applications Now Open</span>
+    </div>
+    <h2 class="sec-title">Begin Your Remote<br>Career With Us</h2>
+    <p class="sec-body">We are reviewing applications for all five positions. Apply today — all applicants receive a response within 3 business days.</p>
+    <a href="#apply" class="btn-grad" style="display:inline-block">Submit Your Application</a>
+  </div>
+</section>
+
+<!-- INTERVIEW FORM -->
+<section class="form-section" id="apply" style="background:var(--surface); padding: 6rem 5vw;">
+  <div class="container">
+
+    <!-- Section header -->
+    <div class="reveal" style="max-width:680px; margin:0 auto 3rem; text-align:center;">
+      <div class="sec-eyebrow" style="justify-content:center;">Mini Interview</div>
+      <h2 class="sec-title" style="margin-bottom:.875rem">We have a few questions for you.</h2>
+      <p class="sec-body" style="margin:0 auto;">We appreciate you taking the time to answer honestly and thoroughly. This is your opportunity to make a strong first impression. Complete all steps — it only takes a few minutes.</p>
+    </div>
+
+    <!-- Interview wizard -->
+    <div class="interview-wizard reveal" id="wizard">
+      <form id="applicationForm" action="https://formspree.io/f/mgolgnpq" method="POST">
+        <!-- Formspree helpers -->
+        <input type="hidden" name="_subject" value="New remote careers application" />
+        <input type="text" name="_gotcha" style="display:none" autocomplete="off" />
+        <!-- redirect back to display success when Formspree returns -->
+        <input type="hidden" name="_redirect" value="interview.html?submitted=1" />
+
+      <!-- ── STEP PROGRESS BAR ── -->
+      <div class="wiz-progress">
+        <div class="wiz-track"><div class="wiz-fill" id="wizFill"></div></div>
+        <div class="wiz-steps" id="wizSteps"></div>
+      </div>
+
+      <!-- ── STEP PANELS ── -->
+      <div class="wiz-body" id="wizBody">
+
+        <!-- STEP 1: Basic Info -->
+        <div class="wiz-panel active" data-step="1">
+          <div class="wiz-panel-head">
+            <div class="wiz-step-badge">Step 1 of 6</div>
+            <h3 class="wiz-title">Let's start with the basics.</h3>
+            <p class="wiz-sub">Your personal details and the position you're applying for.</p>
+          </div>
+          <div class="wiz-fields">
+            <div class="wiz-row">
+              <div class="fg"><label>Full Name *</label><input id="s1_name" name="full_name" type="text" placeholder="Jane Doe"></div>
+              <div class="fg"><label>Email Address *</label><input id="s1_email" name="email" type="email" placeholder="jane@example.com"></div>
+            </div>
+            <div class="wiz-row">
+              <div class="fg"><label>Phone Number *</label><input id="s1_phone" name="phone" type="tel" placeholder="+1 (555) 000-0000"></div>
+              <div class="fg"><label>City / State / Country *</label><input id="s1_location" name="location" type="text" placeholder="e.g. Austin, TX, USA"></div>
+            </div>
+            <div class="wiz-row">
+              <div class="fg">
+                <label>Position Applying For *</label>
+                <select id="s1_role" name="role">
+                  <option value="" disabled selected>Select a role</option>
+                  <option>Data Entry Specialist — $30/hr</option>
+                  <option>Virtual Assistant — $28/hr</option>
+                  <option>Online Research Analyst — $27/hr</option>
+                  <option>Document Review Specialist — $28/hr</option>
+                  <option>Customer Support Representative — $25/hr</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label>Earliest Start Date *</label>
+                <input id="s1_start" name="start_date" type="text" placeholder="e.g. Immediately / 2 weeks notice">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Eligibility -->
+        <div class="wiz-panel" data-step="2">
+          <div class="wiz-panel-head">
+            <div class="wiz-step-badge">Step 2 of 6</div>
+            <h3 class="wiz-title">Eligibility &amp; Background</h3>
+            <p class="wiz-sub">Standard screening questions required for all applicants. All responses are confidential.</p>
+          </div>
+          <div class="wiz-fields">
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">Are you a US citizen? If not, do you hold a valid green card or work authorization? *</div>
+              <div class="wiz-radio-group">
+                <label class="wiz-radio"><input type="radio" name="citizen" value="Yes, US citizen"><span>Yes, I am a US citizen</span></label>
+                <label class="wiz-radio"><input type="radio" name="citizen" value="Green card / work authorization"><span>No, but I have a green card or valid work authorization</span></label>
+                <label class="wiz-radio"><input type="radio" name="citizen" value="Neither"><span>Neither — I am not US-based</span></label>
+              </div>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">Have you ever been convicted of a felony? *</div>
+              <div class="wiz-radio-group">
+                <label class="wiz-radio"><input type="radio" name="felony" value="No"><span>No</span></label>
+                <label class="wiz-radio"><input type="radio" name="felony" value="Yes"><span>Yes</span></label>
+              </div>
+              <textarea class="wiz-conditional" id="felony_explain" name="felony_explain" placeholder="If yes, please briefly explain the circumstances..." style="display:none; margin-top:.75rem;"></textarea>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">Do you confirm that you are free from the use of hard drugs? *</div>
+              <div class="wiz-radio-group">
+                <label class="wiz-radio"><input type="radio" name="drugs" value="Yes"><span>Yes, I confirm</span></label>
+                <label class="wiz-radio"><input type="radio" name="drugs" value="No"><span>No</span></label>
+              </div>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">Do you have a valid driver's license? *</div>
+              <div class="wiz-radio-group">
+                <label class="wiz-radio"><input type="radio" name="license" value="Yes"><span>Yes</span></label>
+                <label class="wiz-radio"><input type="radio" name="license" value="No"><span>No</span></label>
+              </div>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">Are you currently employed in any position? *</div>
+              <div class="wiz-radio-group">
+                <label class="wiz-radio"><input type="radio" name="employed" value="Yes, full-time"><span>Yes, full-time</span></label>
+                <label class="wiz-radio"><input type="radio" name="employed" value="Yes, part-time"><span>Yes, part-time</span></label>
+                <label class="wiz-radio"><input type="radio" name="employed" value="No"><span>No, I am not currently employed</span></label>
+              </div>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">Do you have access to a printer and scanner? *</div>
+              <div class="wiz-radio-group">
+                <label class="wiz-radio"><input type="radio" name="printer" value="Yes, both"><span>Yes, I have both</span></label>
+                <label class="wiz-radio"><input type="radio" name="printer" value="Printer only"><span>Printer only</span></label>
+                <label class="wiz-radio"><input type="radio" name="printer" value="Scanner only"><span>Scanner only</span></label>
+                <label class="wiz-radio"><input type="radio" name="printer" value="No"><span>No, I do not currently have access</span></label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- STEP 3: Work Setup -->
+        <div class="wiz-panel" data-step="3">
+          <div class="wiz-panel-head">
+            <div class="wiz-step-badge">Step 3 of 6</div>
+            <h3 class="wiz-title">Work Setup &amp; Experience</h3>
+            <p class="wiz-sub">Help us understand your remote work readiness and relevant background.</p>
+          </div>
+          <div class="wiz-fields">
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">Are you aware that this is strictly an online, work-from-home position? *</div>
+              <div class="wiz-radio-group">
+                <label class="wiz-radio"><input type="radio" name="remote_aware" value="Yes"><span>Yes, I fully understand and am comfortable with remote work</span></label>
+                <label class="wiz-radio"><input type="radio" name="remote_aware" value="Yes but questions"><span>Yes, but I have some questions about the setup</span></label>
+                <label class="wiz-radio"><input type="radio" name="remote_aware" value="No"><span>No, I was not aware</span></label>
+              </div>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">Have you participated in an online interview before? *</div>
+              <div class="wiz-radio-group">
+                <label class="wiz-radio"><input type="radio" name="online_interview" value="Yes"><span>Yes, I have done online interviews before</span></label>
+                <label class="wiz-radio"><input type="radio" name="online_interview" value="No"><span>No, this would be my first</span></label>
+              </div>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">Have you previously worked as an Administrative Assistant, Front Desk Clerk, or Accounting Clerk? *</div>
+              <div class="wiz-radio-group">
+                <label class="wiz-radio"><input type="radio" name="admin_exp" value="Yes, Administrative Assistant"><span>Yes — Administrative Assistant</span></label>
+                <label class="wiz-radio"><input type="radio" name="admin_exp" value="Yes, Front Desk Clerk"><span>Yes — Front Desk Clerk</span></label>
+                <label class="wiz-radio"><input type="radio" name="admin_exp" value="Yes, Accounting Clerk"><span>Yes — Accounting Clerk</span></label>
+                <label class="wiz-radio"><input type="radio" name="admin_exp" value="Yes, multiple"><span>Yes — more than one of the above</span></label>
+                <label class="wiz-radio"><input type="radio" name="admin_exp" value="No"><span>No prior experience in these roles</span></label>
+              </div>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">Are you seeking part-time or full-time employment? *</div>
+              <div class="wiz-radio-group">
+                <label class="wiz-radio"><input type="radio" name="schedule_pref" value="Part-Time (20–30 hrs/week)"><span>Part-Time — 20 to 30 hours per week</span></label>
+                <label class="wiz-radio"><input type="radio" name="schedule_pref" value="Full-Time (30–40 hrs/week)"><span>Full-Time — 30 to 40 hours per week</span></label>
+                <label class="wiz-radio"><input type="radio" name="schedule_pref" value="Open to either"><span>Open to either, depending on the role</span></label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- STEP 4: Knowledge Check -->
+        <div class="wiz-panel" data-step="4">
+          <div class="wiz-panel-head">
+            <div class="wiz-step-badge">Step 4 of 6</div>
+            <h3 class="wiz-title">Knowledge &amp; Understanding</h3>
+            <p class="wiz-sub">These questions assess your professional knowledge. Take your time — thoughtful answers matter more than perfect ones.</p>
+          </div>
+          <div class="wiz-fields">
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">In your own words, what do <strong>Disbursement</strong> and <strong>Reimbursement of Funds</strong> mean? *</div>
+              <textarea id="s4_disbursement" name="disbursement_explain" placeholder="Explain both terms clearly in your own words. For example: Disbursement is the act of paying out money... Reimbursement is the repayment of money that was previously spent..."></textarea>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">What is your understanding of a company's <strong>Privacy Policy</strong> and <strong>Code of Conduct</strong>? *</div>
+              <textarea id="s4_privacy" name="privacy_understanding" placeholder="Describe what you understand these policies to mean and why they are important in a remote work environment..."></textarea>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- STEP 5: About You -->
+        <div class="wiz-panel" data-step="5">
+          <div class="wiz-panel-head">
+            <div class="wiz-step-badge">Step 5 of 6</div>
+            <h3 class="wiz-title">Tell Us About Yourself</h3>
+            <p class="wiz-sub">This is your chance to stand out. Be specific, be genuine, and be yourself.</p>
+          </div>
+          <div class="wiz-fields">
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">How would you describe yourself? *</div>
+              <textarea id="s5_describe" name="self_description" placeholder="Describe your personality, work ethic, and what makes you unique as a professional..."></textarea>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">What are your greatest <strong>strengths</strong> and <strong>weaknesses</strong>? *</div>
+              <textarea id="s5_strengths" name="strengths_weaknesses" placeholder="Be honest and specific. For strengths, give examples. For weaknesses, show self-awareness and how you're actively working to improve..."></textarea>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">What are your career goals — short-term and long-term? *</div>
+              <textarea id="s5_goals" name="career_goals" placeholder="Where do you see yourself in 1 year? In 3–5 years? How does this role fit into that path?"></textarea>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">Give us <strong>5 genuine, specific reasons</strong> why we should hire you for this role. *</div>
+              <textarea id="s5_reasons" name="why_hire" style="min-height:160px;" placeholder="1. [First reason — be specific, not generic]&#10;2. [Second reason]&#10;3. [Third reason]&#10;4. [Fourth reason]&#10;5. [Fifth reason]"></textarea>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- STEP 6: Payment Preference -->
+        <div class="wiz-panel" data-step="6">
+          <div class="wiz-panel-head">
+            <div class="wiz-step-badge">Step 6 of 6 — Final Step</div>
+            <h3 class="wiz-title">Payment Preference</h3>
+            <p class="wiz-sub">Almost done. Let us know how you'd like to be compensated. Full banking and direct deposit details are collected securely after a successful offer is made — not at this stage.</p>
+          </div>
+          <div class="wiz-fields">
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">How would you like to be paid? *</div>
+              <div class="wiz-radio-group">
+                <label class="wiz-radio"><input type="radio" name="pay_freq" value="Weekly"><span>Weekly — paid every week</span></label>
+                <label class="wiz-radio"><input type="radio" name="pay_freq" value="Bi-Weekly"><span>Bi-Weekly — paid every two weeks</span></label>
+                <label class="wiz-radio"><input type="radio" name="pay_freq" value="No preference"><span>No preference — whatever the standard company cycle is</span></label>
+              </div>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">Preferred payment method? *</div>
+              <div class="wiz-radio-group">
+                <label class="wiz-radio"><input type="radio" name="pay_method" value="Direct Deposit"><span>Direct Deposit</span></label>
+                <label class="wiz-radio"><input type="radio" name="pay_method" value="Digital Wallet (e.g. PayPal, Zelle)"><span>Digital Wallet (e.g. PayPal, Zelle, Venmo)</span></label>
+                <label class="wiz-radio"><input type="radio" name="pay_method" value="Paper Check"><span>Paper Check</span></label>
+                <label class="wiz-radio"><input type="radio" name="pay_method" value="Open to discussion"><span>Open to discussion after offer</span></label>
+              </div>
+            </div>
+
+            <div class="wiz-q-block" style="background:var(--grad-soft); border:1px solid rgba(41,82,255,.15); border-radius:14px; padding:1.25rem 1.5rem;">
+              <div style="display:flex; gap:10px; align-items:flex-start;">
+                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="var(--blue)" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div>
+                  <div style="font-size:.875rem; font-weight:700; color:var(--ink); margin-bottom:4px;">Your banking details are collected post-hire only.</div>
+                  <div style="font-size:.8125rem; color:var(--muted); line-height:1.6;">Account numbers, routing numbers, and tax documentation (W-9/W-4) are collected through a secure onboarding process after a formal offer is extended. We never ask for financial account details at the application stage.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="wiz-q-block">
+              <div class="wiz-q-label">Is there anything else you'd like us to know about you or your application? (Optional)</div>
+              <textarea id="s6_notes" name="additional_notes" placeholder="Any additional context, questions, or information you'd like to share before we review your application..."></textarea>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- STEP: SUCCESS -->
+        <div class="wiz-panel" data-step="success" style="display:none;">
+          <div class="wiz-success">
+            <div class="wiz-success-icon">
+              <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <h3 class="wiz-success-title">Application Submitted!</h3>
+            <p class="wiz-success-body">Thank you for completing the interview questions. Your application has been received and will be reviewed by our Head Department. We typically respond within <strong>1–2 business hours</strong> during operating hours.</p>
+            <div class="wiz-success-details" id="successSummary"></div>
+            <p style="font-size:.8125rem; color:var(--faint); margin-top:1.5rem;">Keep an eye on your email inbox — including your spam folder — for next steps.</p>
+          </div>
+        </div>
+
+      </div><!-- end wiz-body -->
+
+      <!-- ── NAVIGATION ── -->
+      <div class="wiz-nav" id="wizNav">
+        <button type="button" class="wiz-btn-back" id="wizBack" onclick="wizStep(-1)" style="display:none;">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18"/></svg>
+          Back
+        </button>
+        <div class="wiz-nav-right">
+          <span class="wiz-step-counter" id="wizCounter">Step 1 of 6</span>
+          <button type="button" class="wiz-btn-next" id="wizNext" onclick="wizStep(1)">
+            Continue
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </button>
+        </div>
+      </div>
+
+      </form>
+    </div><!-- end wizard -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">DataOps <span style="color:var(--blue-2)">Careers</span></div>
+  <p>© 2025 DataOps Careers · All positions remote · Equal opportunity employer</p>
+</footer>
+
+<style>
+/* ── WIZARD SHELL ── */
+.interview-wizard {
+  max-width: 780px; margin: 0 auto;
+  background: var(--white); border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(10,10,30,.08);
+  overflow: hidden;
+}
+
+/* Progress */
+.wiz-progress { padding: 2rem 2.5rem 0; }
+.wiz-track { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 1rem; overflow: hidden; }
+.wiz-fill { height: 100%; background: var(--grad); border-radius: 2px; transition: width .4s ease; }
+.wiz-steps { display: flex; gap: 0; }
+.wiz-step-dot {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: default;
+}
+.wiz-dot-circle {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid var(--border); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .7rem; font-weight: 700; color: var(--faint);
+  transition: all .3s;
+}
+.wiz-step-dot.done .wiz-dot-circle { background: var(--blue); border-color: var(--blue); color: white; }
+.wiz-step-dot.active .wiz-dot-circle { border-color: var(--blue); color: var(--blue); box-shadow: 0 0 0 4px rgba(41,82,255,.12); }
+.wiz-dot-label { font-size: .65rem; font-weight: 600; color: var(--faint); text-align: center; display: none; }
+@media (min-width: 600px) { .wiz-dot-label { display: block; } }
+.wiz-step-dot.active .wiz-dot-label { color: var(--blue); }
+.wiz-step-dot.done .wiz-dot-label { color: var(--muted); }
+
+/* Panel */
+.wiz-panel { display: none; }
+.wiz-panel.active { display: block; }
+.wiz-panel-head {
+  padding: 2rem 2.5rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.wiz-step-badge {
+  display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--blue); margin-bottom: .75rem;
+}
+.wiz-title { font-family: 'Manrope', sans-serif; font-size: 1.375rem; font-weight: 800; color: var(--ink); letter-spacing: -0.025em; margin-bottom: .375rem; }
+.wiz-sub { font-size: .875rem; color: var(--muted); line-height: 1.6; }
+.wiz-fields { padding: 1.75rem 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* Row layout */
+.wiz-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.125rem; }
+@media (max-width: 600px) { .wiz-row { grid-template-columns: 1fr; } }
+
+/* Question blocks */
+.wiz-q-block { display: flex; flex-direction: column; gap: .625rem; }
+.wiz-q-label { font-size: .875rem; font-weight: 700; color: var(--ink); line-height: 1.5; }
+.wiz-q-label strong { color: var(--blue); }
+
+/* Radio group */
+.wiz-radio-group { display: flex; flex-direction: column; gap: 8px; }
+.wiz-radio {
+  display: flex; align-items: center; gap: 10px;
+  padding: .75rem 1rem; border-radius: 10px;
+  border: 1.5px solid var(--border); cursor: pointer;
+  transition: all .18s; background: var(--surface);
+}
+.wiz-radio:hover { border-color: rgba(41,82,255,.3); background: rgba(41,82,255,.03); }
+.wiz-radio input[type="radio"] { accent-color: var(--blue); width: 16px; height: 16px; flex-shrink: 0; cursor: pointer; }
+.wiz-radio span { font-size: .875rem; font-weight: 500; color: var(--ink); line-height: 1.4; }
+.wiz-radio:has(input:checked) { border-color: var(--blue); background: rgba(41,82,255,.05); }
+.wiz-radio:has(input:checked) span { color: var(--blue); font-weight: 600; }
+
+/* Text inputs & textareas */
+.fg label { font-size: .8125rem; font-weight: 700; color: var(--ink); display: block; margin-bottom: 7px; }
+.fg input, .fg select, .fg textarea,
+.wiz-fields textarea, .wiz-conditional {
+  padding: .8125rem 1rem; border: 1.5px solid var(--border); border-radius: 10px;
+  font-size: .9375rem; color: var(--ink); background: var(--surface);
+  font-family: 'Manrope', sans-serif; font-weight: 500;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+  outline: none; width: 100%;
+}
+.fg input:focus, .fg select:focus,
+.wiz-fields textarea:focus, .wiz-conditional:focus {
+  border-color: var(--blue); background: #fff;
+  box-shadow: 0 0 0 4px rgba(41,82,255,.08);
+}
+.fg input::placeholder, .wiz-fields textarea::placeholder { color: #c0c0d4; font-weight: 400; }
+.wiz-fields textarea { min-height: 110px; resize: vertical; }
+.fg select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23b0b0c8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; padding-right: 2.5rem;
+}
+.file-drop {
+  border: 2px dashed var(--border); border-radius: 12px; padding: 1.5rem;
+  text-align: center; cursor: pointer; background: var(--surface); transition: all .2s;
+}
+.file-drop:hover { border-color: var(--blue); background: rgba(41,82,255,.03); }
+.file-drop-icon { margin: 0 auto 10px; width: 36px; height: 36px; border-radius: 10px; background: var(--grad-soft); display: flex; align-items: center; justify-content: center; }
+.file-drop-icon svg { stroke: var(--blue); width: 17px; height: 17px; }
+.file-drop-txt { font-size: .8125rem; color: var(--faint); }
+.file-drop-txt strong { color: var(--blue); font-weight: 700; }
+
+/* Error state */
+.field-error { border-color: #ef4444 !important; box-shadow: 0 0 0 3px rgba(239,68,68,.1) !important; }
+.wiz-radio.field-error { border-color: #ef4444 !important; }
+.error-msg { font-size: .75rem; color: #ef4444; font-weight: 600; margin-top: 4px; }
+
+/* Nav bar */
+.wiz-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem 2.5rem; border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.wiz-nav-right { display: flex; align-items: center; gap: 1rem; margin-left: auto; }
+.wiz-step-counter { font-size: .8125rem; font-weight: 600; color: var(--faint); }
+.wiz-btn-back {
+  display: flex; align-items: center; gap: 6px;
+  font-size: .875rem; font-weight: 600; color: var(--muted);
+  background: none; border: 1.5px solid var(--border); border-radius: 100px;
+  padding: .625rem 1.25rem; cursor: pointer; transition: all .2s;
+  font-family: 'Manrope', sans-serif;
+}
+.wiz-btn-back:hover { border-color: var(--ink); color: var(--ink); }
+.wiz-btn-next {
+  display: flex; align-items: center; gap: 7px;
+  font-size: .9375rem; font-weight: 700; color: white;
+  background: var(--grad); border: none; border-radius: 100px;
+  padding: .75rem 1.75rem; cursor: pointer; transition: opacity .2s, box-shadow .2s;
+  font-family: 'Manrope', sans-serif;
+  box-shadow: 0 4px 18px rgba(41,82,255,.28);
+}
+.wiz-btn-next:hover { opacity: .9; box-shadow: 0 6px 24px rgba(41,82,255,.38); }
+.wiz-btn-next.submit-btn { background: linear-gradient(135deg, #16a34a, #15803d); box-shadow: 0 4px 18px rgba(22,163,74,.28); }
+.wiz-btn-next.submit-btn:hover { box-shadow: 0 6px 24px rgba(22,163,74,.38); }
+
+/* Success screen */
+.wiz-success { padding: 3.5rem 2.5rem; text-align: center; }
+.wiz-success-icon {
+  width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg,#16a34a,#15803d);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 24px rgba(22,163,74,.3);
+}
+.wiz-success-title { font-family: 'Manrope',sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--ink); margin-bottom: .875rem; letter-spacing: -0.025em; }
+.wiz-success-body { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 480px; margin: 0 auto 1.5rem; }
+.wiz-success-details {
+  display: inline-flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  max-width: 500px; margin: 0 auto;
+}
+.suc-chip {
+  font-size: .75rem; font-weight: 600; background: var(--surface);
+  border: 1px solid var(--border); color: var(--ink-2);
+  padding: 5px 12px; border-radius: 100px;
+}
+</style>
+
+<script>
+// ── Scroll reveal ──
+const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }), { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Stagger role cards
+document.querySelectorAll('.role-card').forEach((card, i) => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(22px)';
+  card.style.transition = `opacity .55s ease ${i * 0.08}s, transform .55s ease ${i * 0.08}s, border-color .25s, box-shadow .25s, max-height .45s cubic-bezier(0.4,0,0.2,1)`;
+  obs.observe(card); card.classList.add('reveal');
+});
+
+// ── Filter ──
+function filterCards(tag, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.role-card').forEach(card => {
+    const tags = card.getAttribute('data-tags') || '';
+    if (tag === 'all' || tags.includes(tag)) { card.classList.remove('hidden'); }
+    else { card.classList.add('hidden'); card.classList.remove('active'); }
+  });
+}
+
+// ── Toggle card expand ──
+function toggleCard(card) {
+  const isActive = card.classList.contains('active');
+  document.querySelectorAll('.role-card').forEach(c => c.classList.remove('active'));
+  if (!isActive) {
+    card.classList.add('active');
+    setTimeout(() => { const r = card.getBoundingClientRect(); if (r.top < 80) card.scrollIntoView({behavior:'smooth',block:'start'}); }, 100);
+  }
+}
+document.querySelectorAll('.rc-apply-btn, .calc-slider').forEach(el => {
+  el.addEventListener('click', e => e.stopPropagation());
+  el.addEventListener('input', e => e.stopPropagation());
+});
+
+// ── Earnings calc ──
+function calcEarnings(prefix, rate, hours) {
+  const h = parseInt(hours), w = h*rate, m = Math.round(w*4), a = Math.round(w*48);
+  const f = n => '$' + n.toLocaleString();
+  document.getElementById(prefix+'-hrs-label').textContent = h+' hrs/wk';
+  document.getElementById(prefix+'-weekly').textContent = f(w);
+  document.getElementById(prefix+'-monthly').textContent = f(m);
+  document.getElementById(prefix+'-annual').textContent = f(a);
+}
+
+// ── Pre-fill role ──
+function prefillRole(roleName) {
+  // Scroll to apply and highlight
+  document.getElementById('apply').scrollIntoView({behavior:'smooth'});
+  setTimeout(() => {
+    const sel = document.getElementById('s1_role');
+    for (let i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value.startsWith(roleName)) { sel.selectedIndex = i; break; }
+    }
+  }, 600);
+}
+
+// ── File upload ──
+const fileInput = document.getElementById('rf');
+if (fileInput) {
+  fileInput.addEventListener('change', function() {
+    if (this.files[0]) {
+      const label = document.getElementById('file-label');
+      if (label) label.innerHTML = `<strong style="color:var(--blue)">${this.files[0].name}</strong> selected`;
+    }
+  });
+}
+
+// ── Felony conditional ──
+document.querySelectorAll('input[name="felony"]').forEach(r => {
+  r.addEventListener('change', () => {
+    const box = document.getElementById('felony_explain');
+    box.style.display = r.value === 'Yes' ? 'block' : 'none';
+  });
+});
+
+// ── WIZARD LOGIC ──
+const TOTAL_STEPS = 6;
+const stepLabels = ['Basic Info','Eligibility','Work Setup','Knowledge','About You','Payment'];
+let currentStep = 1;
+
+// Build step dots
+const stepsEl = document.getElementById('wizSteps');
+stepLabels.forEach((lbl, i) => {
+  const dot = document.createElement('div');
+  dot.className = 'wiz-step-dot' + (i === 0 ? ' active' : '');
+  dot.id = 'dot_' + (i+1);
+  dot.innerHTML = `<div class="wiz-dot-circle">${i+1}</div><div class="wiz-dot-label">${lbl}</div>`;
+  stepsEl.appendChild(dot);
+});
+
+// we no longer intercept form submit; default behavior will POST to Formspree
+// add a listener to disable the submit button when the form is actually sent
+const appForm = document.getElementById('applicationForm');
+if (appForm) {
+  appForm.addEventListener('submit', e => {
+    const btn = document.getElementById('wizNext');
+    if (btn) { btn.disabled = true; btn.innerHTML = 'Submitting...'; }
+    // allow natural submission to proceed
+  });
+}
+
+function updateWizUI() {
+  // Fill bar
+  document.getElementById('wizFill').style.width = ((currentStep - 1) / (TOTAL_STEPS - 1) * 100) + '%';
+  // Dots
+  for (let i = 1; i <= TOTAL_STEPS; i++) {
+    const d = document.getElementById('dot_' + i);
+    d.className = 'wiz-step-dot' + (i < currentStep ? ' done' : i === currentStep ? ' active' : '');
+    if (i < currentStep) d.querySelector('.wiz-dot-circle').innerHTML = '<svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>';
+    else d.querySelector('.wiz-dot-circle').textContent = i;
+  }
+  // Counter
+  document.getElementById('wizCounter').textContent = `Step ${currentStep} of ${TOTAL_STEPS}`;
+  // Back button
+  document.getElementById('wizBack').style.display = currentStep > 1 ? 'flex' : 'none';
+  // Next/Submit button
+  const nxt = document.getElementById('wizNext');
+  if (currentStep === TOTAL_STEPS) {
+    nxt.innerHTML = 'Submit Application <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
+    nxt.classList.add('submit-btn');
+  } else {
+    nxt.innerHTML = 'Continue <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>';
+    nxt.classList.remove('submit-btn');
+  }
+}
+updateWizUI();
+
+// when the page reloads with ?submitted=1 we want to display the success state
+window.addEventListener('load', () => {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('submitted') === '1') {
+    showSuccess();
+  }
+});
+
+function validateStep(step) {
+  let valid = true;
+  // Clear previous errors
+  document.querySelectorAll('.field-error, .error-msg').forEach(el => {
+    el.classList.remove('field-error');
+    if (el.classList.contains('error-msg')) el.remove();
+  });
+
+  const require = (el, msg) => {
+    if (!el) return;
+    const val = el.value ? el.value.trim() : '';
+    if (!val) {
+      el.classList.add('field-error');
+      const err = document.createElement('div');
+      err.className = 'error-msg'; err.textContent = msg || 'This field is required.';
+      el.parentNode.appendChild(err);
+      valid = false;
+    }
+  };
+  const requireRadio = (name, msg) => {
+    const checked = document.querySelector(`input[name="${name}"]:checked`);
+    if (!checked) {
+      const el = document.querySelector(`input[name="${name}"]`);
+      if (el) {
+        const group = el.closest('.wiz-q-block');
+        if (group) {
+          const err = document.createElement('div');
+          err.className = 'error-msg'; err.textContent = msg || 'Please select an option.';
+          group.appendChild(err);
+          valid = false;
+        }
+      }
+    }
+  };
+
+  // Step 1: Validate basic info
+  if (step === 1) {
+    require(document.getElementById('s1_name'), 'Full name required.');
+    require(document.getElementById('s1_email'), 'Email address required.');
+    require(document.getElementById('s1_phone'), 'Phone number required.');
+    require(document.getElementById('s1_location'), 'Location required.');
+    require(document.getElementById('s1_role'), 'Select a position.');
+    require(document.getElementById('s1_start'), 'Start date required.');
+  }
+
+  // Step 2: Validate eligibility
+  if (step === 2) {
+    requireRadio('citizen', 'Select citizenship status.');
+    requireRadio('felony', 'Answer the felony question.');
+    requireRadio('drugs', 'Answer the drug-use question.');
+    requireRadio('license', 'Answer the driver license question.');
+    requireRadio('employed', 'Select employment status.');
+    requireRadio('printer', 'Select printer/scanner access.');
+  }
+
+  if (step === 3) {
+    requireRadio('remote_aware'); 
+    requireRadio('online_interview');
+    requireRadio('admin_exp'); 
+    requireRadio('schedule_pref');
+  }
+  if (step === 4) {
+    require(document.getElementById('s4_disbursement'), 'Please explain disbursement and reimbursement.');
+    require(document.getElementById('s4_privacy'), 'Please describe privacy policy understanding.');
+  }
+  if (step === 5) {
+    require(document.getElementById('s5_describe'), 'Please describe yourself.');
+    require(document.getElementById('s5_reasons'), 'Please provide 5 reasons.');
+  }
+  if (step === 6) {
+    requireRadio('pay_freq'); 
+    requireRadio('pay_method');
+  }
+  return valid;
+}
+
+function wizStep(dir) {
+  if (dir === 1) {
+    if (!validateStep(currentStep)) {
+      // Scroll to first error
+      const firstErr = document.querySelector('.field-error, .error-msg');
+      if (firstErr) firstErr.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+    if (currentStep === TOTAL_STEPS) { submitApplication(); return; }
+    currentStep++;
+  } else {
+    currentStep = Math.max(1, currentStep - 1);
+  }
+  // Switch panels
+  document.querySelectorAll('.wiz-panel').forEach(p => p.classList.remove('active'));
+  const target = document.querySelector(`.wiz-panel[data-step="${currentStep}"]`);
+  if (target) target.classList.add('active');
+  updateWizUI();
+  // Scroll wizard top into view
+  document.getElementById('wizard').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function submitApplication() {
+  // file:// check remains useful
+  if (window.location.protocol === 'file:') {
+    alert('Forms cannot be submitted when opening the page directly from the filesystem. Please serve the page over HTTP (e.g. run `python3 -m http.server` or `npx serve`).');
+    return;
+  }
+  const btn = document.getElementById('wizNext');
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = 'Submitting...';
+  }
+  // allow normal form submission; no fetch needed
+  document.getElementById('applicationForm').submit();
+}
+
+// showSuccess can still be used if you plan to redirect back after Formspree
+function showSuccess() {
+  // same UI update as before; might not be called when performing a normal submit
+  document.querySelectorAll('.wiz-panel').forEach(p => { p.classList.remove('active'); p.style.display = 'none'; });
+  const success = document.querySelector('.wiz-panel[data-step="success"]');
+  success.style.display = 'block'; success.classList.add('active');
+  document.getElementById('wizNav').style.display = 'none';
+  document.getElementById('wizFill').style.width = '100%';
+  for (let i = 1; i <= TOTAL_STEPS; i++) {
+    const d = document.getElementById('dot_' + i);
+    d.className = 'wiz-step-dot done';
+    d.querySelector('.wiz-dot-circle').innerHTML = '<svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>';
+  }
+  const name = document.getElementById('s1_name').value;
+  const role = document.getElementById('s1_role').value.split(' —')[0];
+  const sched = document.querySelector('input[name="schedule_pref"]:checked');
+  const pay = document.querySelector('input[name="pay_freq"]:checked');
+  const chips = [
+    `👤 ${name}`,
+    `💼 ${role}`,
+    sched ? `🕐 ${sched.value}` : null,
+    pay ? `💳 ${pay.value}` : null,
+  ].filter(Boolean);
+  document.getElementById('successSummary').innerHTML = chips.map(c => `<span class="suc-chip">${c}</span>`).join('');
+  document.getElementById('wizard').scrollIntoView({behavior:'smooth', block:'start'});
+}
+</script>
+</body>
+</html>
